@@ -9,7 +9,7 @@ public class BuildingBlocks : MonoBehaviour
 	public Transform Constructed;
 	public Transform DestructedArea;
 
-	public PhysicMaterial BlockPhysicMaterial;
+	public PhysicsMaterial BlockPhysicMaterial;
 
 	bool Disassembling;
 
@@ -89,7 +89,7 @@ public class BuildingBlocks : MonoBehaviour
 
 		Vector3 flingVelocity = lastMotion / Time.deltaTime;
 
-		rb.velocity = flingVelocity;
+		rb.linearVelocity = flingVelocity;
 
 		rb.angularVelocity = Random.onUnitSphere * Random.Range( 0.5f, 4.0f);
 
@@ -99,7 +99,7 @@ public class BuildingBlocks : MonoBehaviour
 		for (float t = 0; t < WaitToKillPhysics; t += Time.deltaTime)
 		{
 			// accelerates demise when stopped
-			if (rb.velocity.magnitude < 0.01f)
+			if (rb.linearVelocity.magnitude < 0.01f)
 			{
 				t += Time.deltaTime * 3.0f;
 			}

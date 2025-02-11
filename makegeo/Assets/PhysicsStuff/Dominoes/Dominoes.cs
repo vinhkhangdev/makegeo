@@ -45,12 +45,12 @@ public class Dominoes : MonoBehaviour
 		}
 
 		// they should probably be slippery too
-		PhysicMaterial pm = new PhysicMaterial("Domino");
+		PhysicsMaterial pm = new PhysicsMaterial("Domino");
 		pm.bounciness = 0.1f;
 		pm.staticFriction = 0.5f;
 		pm.dynamicFriction = 0.2f;
-		pm.bounceCombine = PhysicMaterialCombine.Average;
-		pm.frictionCombine = PhysicMaterialCombine.Minimum;
+		pm.bounceCombine = PhysicsMaterialCombine.Average;
+		pm.frictionCombine = PhysicsMaterialCombine.Minimum;
 
 		// make us proud Mr Physics System!!!
 		int dominoCount = 100;
@@ -105,8 +105,8 @@ public class Dominoes : MonoBehaviour
 			// are probably made of depleted uranium...
 
 			// TODO: we may want to add some drag / angularDrag AFTER they fall and land to help them sleep?
-			rb.drag = 0;
-			rb.angularDrag = 0;
+			rb.linearDamping = 0;
+			rb.angularDamping = 0;
 
 			// turn
 			float turnAmount = curvature;
